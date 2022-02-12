@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { fromEvent, Subscription, tap } from "rxjs";
+import { fromEvent, Subscription } from "rxjs";
+import { tap } from 'rxjs/operators';
 import { DatepickerDialogComponent } from './datepicker-dialog/datepicker-dialog.component';
 import { NgxPersianDateSelectorService } from './ngx-persian-date-selector.service';
 
