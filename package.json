@@ -1,15 +1,15 @@
 {
 	"name": "ngx-persian-date-selector",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"peerDependencies": {
-		"jalaali-js": "^1.2.3",
 		"@angular/common": "^13.1.0",
-		"@angular/core": "^13.1.0",
-		"@angular/material": "^13.2.1",
-		"lodash": "^4.17.21",
-		"tslib": "^2.3.0"
+		"@angular/core": "^13.1.0"
 	},
 	"dependencies": {
+		"@angular/material": "^13.2.1",
+		"jalaali-js": "^1.2.3",
+		"lodash": "^4.17.21",
+		"tslib": "^2.3.0"
 	},
 	"devDependencies": {
 		"@types/jalaali-js": "^1.1.0",
