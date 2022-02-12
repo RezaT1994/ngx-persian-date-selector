@@ -1,0 +1,56 @@
+<div [ngStyle]="{'top.px': top, 'left.px': left}" class="ngx-persian-datepicker-dialog-container">
+	<div class="ngx-persian-datepicker-dialog-header">
+		<button mat-icon-button (click)="goToPrevYear()" class="ngx-persian-datepicker-dialog-double-arrow">
+			<mat-icon>chevron_right</mat-icon>
+			<mat-icon>chevron_right</mat-icon>
+		</button>
+		<button mat-icon-button (click)="goToPrevMonth()">
+			<mat-icon>chevron_right</mat-icon>
+		</button>
+		<span class="ngx-persian-datepicker-dialog-selected-year-and-month">{{ displayedYearAndMonth }}</span>
+		<button mat-icon-button (click)="goToNextMonth()">
+			<mat-icon>chevron_left</mat-icon>
+		</button>
+		<button mat-icon-button (click)="goToNextYear()" class="ngx-persian-datepicker-dialog-double-arrow">
+			<mat-icon>chevron_left</mat-icon>
+			<mat-icon>chevron_left</mat-icon>
+		</button>
+	</div>
+	<div class="ngx-persian-datepicker-dialog-month">
+		<table>
+			<thead>
+				<tr>
+					<th>ش</th>
+					<th>ی</th>
+					<th>د</th>
+					<th>س</th>
+					<th>چ</th>
+					<th>پ</th>
+					<th>ج</th>
+				</tr>
+				<tr>
+					<th class="ngx-persian-datepicker-dialog-month-divider"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let row of rows">
+					<td *ngFor="let col of row">
+						<ng-template [ngIf]="col === selectedDate.day && selectedDate.year === currentDate.year && selectedDate.month === currentDate.month">
+							<button mat-mini-fab color="primary" (click)="selectDate(currentDate.year, currentDate.month, col)" *ngIf="col !== 0">
+								{{ col }}
+							</button>
+						</ng-template>
+						<ng-template [ngIf]="col !== selectedDate.day || selectedDate.year !== currentDate.year || selectedDate.month !== currentDate.month">
+							<button mat-icon-button (click)="selectDate(currentDate.year, currentDate.month, col)" *ngIf="col !== 0">
+								{{ col }}
+							</button>
+						</ng-template>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="ngx-persian-datepicker-dialog-footer">
+		<button mat-raised-button color="primary" (click)="selectToday()">امروز</button>
+	</div>
+</div>

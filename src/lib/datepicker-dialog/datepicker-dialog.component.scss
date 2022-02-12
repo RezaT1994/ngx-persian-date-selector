@@ -1,0 +1,70 @@
+.ngx-persian-datepicker-dialog-container {
+	position: absolute;
+	width: 310px;
+	z-index: 20;
+	background-color: #fff;
+	box-shadow: 0 2px 4px -1px #0003, 0 4px 5px #00000024, 0 1px 10px #0000001f;
+	border-radius: 4px;
+
+	.ngx-persian-datepicker-dialog-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 15px;
+		padding-bottom: 0;
+
+		.ngx-persian-datepicker-dialog-selected-year-and-month {
+			width: 120px;
+    		text-align: center;
+		}
+
+		.ngx-persian-datepicker-dialog-double-arrow {
+			.mat-icon {
+				margin: -22%;
+			}
+		}
+	}
+
+	.ngx-persian-datepicker-dialog-footer {
+		padding: 15px;
+		padding-top: 0;
+	}
+
+	.ngx-persian-datepicker-dialog-month {
+		padding: 15px;
+
+		.ngx-persian-datepicker-dialog-month-divider {
+			position: relative;
+			width: 100% !important;
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -15px;
+				right: -15px;
+				height: 1px;
+				background: rgba(0,0,0,.12);
+			}
+		}
+
+		table {
+			width: 100%;
+
+			thead {
+				color: #0000008a;
+			}
+
+			th, td {
+				text-align: center;
+				width: 40px;
+				display: inline-block;
+
+				.mat-mini-fab {
+					display: grid;
+    				place-content: center;
+				}
+			}
+		}
+	}
+}
