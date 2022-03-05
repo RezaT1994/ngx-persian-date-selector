@@ -21,7 +21,7 @@ export class NgxPersianDateSelectorComponent implements OnInit, AfterViewInit {
 
 	ngOnInit(): void {
 		setTimeout(() => {
-			this.matInput.readOnly = true;
+			// this.matInput.readOnly = true;
 		}, 0);
 	}
 
