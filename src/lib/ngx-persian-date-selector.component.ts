@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, NgZone, OnInit, Output, ViewChild } from '@angular/core';
 import { fromEvent, Subscription } from "rxjs";
 import { tap } from 'rxjs/operators';
 import { DatepickerDialogComponent } from './datepicker-dialog/datepicker-dialog.component';
@@ -16,7 +16,7 @@ export class NgxPersianDateSelectorComponent implements OnInit, AfterViewInit {
 	componentRef: any;
 	documentClickSubscription!: Subscription;
 
-	constructor(private ngxPersianDateSelectorService: NgxPersianDateSelectorService, private cd: ChangeDetectorRef) {
+	constructor(private ngxPersianDateSelectorService: NgxPersianDateSelectorService, private cd: ChangeDetectorRef, private _zone: NgZone) {
 	}
 
 	ngOnInit(): void {
@@ -46,7 +46,9 @@ export class NgxPersianDateSelectorComponent implements OnInit, AfterViewInit {
 			tap((evt: any) => {
 				this.onSelect.emit(evt);
 				this.matInput.value = evt;
-				this.cd.detectChanges();
+				this._zone.runOutsideAngular(() => {
+					this.cd.detectChanges();
+				});
 				this.closeCalendar();
 			})
 		).subscribe();
