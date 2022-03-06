@@ -21,7 +21,7 @@ export class NgxPersianDateSelectorComponent implements OnInit, AfterViewInit {
 
 	ngOnInit(): void {
 		setTimeout(() => {
-			// this.matInput.readOnly = true;
+			this.matInput.readOnly = true;
 		}, 0);
 	}
 
@@ -46,8 +46,6 @@ export class NgxPersianDateSelectorComponent implements OnInit, AfterViewInit {
 			tap((evt: any) => {
 				this.onSelect.emit(evt);
 				this.matInput.value = evt;
-				(this.matInput as HTMLInputElement).dispatchEvent(new Event('change'));
-				this.cd.detectChanges();
 				this.closeCalendar();
 			})
 		).subscribe();
